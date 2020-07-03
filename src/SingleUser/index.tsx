@@ -16,7 +16,7 @@ class SingleUser extends React.PureComponent<SingleUserProps, SingleUserState> {
   private service = new Service();
 
   componentDidMount() {
-    this.service.fetchSingleUser().then(user => {
+    this.service.fetchSingleUser().then((user) => {
       this.setState({ user });
     });
   }
