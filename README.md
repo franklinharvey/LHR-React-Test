@@ -1,2 +1,48 @@
-# LHR-React-Test
-Created with CodeSandbox
+# LHR React Test
+This exercise should test some basic react knowledge, as well as testing some problem solving around asynchronous and realtime API’s.
+
+The real test here is for functionality, but if you feel that you would like to express some UX or design thinking, feel free to do so.
+
+Everything in `/Service` is fine to look at or change for testing purposes, but none of these exercises require any changes to these files.
+
+## Part 1, Organization
+We would like to see all of the users of a fictitious application, organized by last name. For instance, if we have a list of users:
+
+```
+Simmons Howard Thomas
+Reed Carter
+Ross Sara Eric
+Albert Howard Long
+Henry Long
+Simmons Thomas Alexander
+Carolyn Sara Scott
+```
+
+We want to be able to somehow view all of our users whose last name start with some letter. If in this example we choose `L` we should see 
+
+```
+Albert Howard Long
+Henry Long
+```
+
+You will need some mechanism for selecting a letter, we don’t care what it is, a simple `<select/>` or `<input/>` is fine. 
+
+In `Organization/index.ts` create a react component that displays the users returned from class `Service`’s `fetchUserList` method. You need only to display a static list of names.
+
+For inspiration, check out `SingleUser/index.ts` to see how you can fetch and display single user.
+
+## Part 2, New Users
+We want to see users sign up in realtime!
+
+In `NewUsers/index.ts` you will do something very similar to part 1, except instead of calling `fetchUserList`, you will use `listenForUser`. This method takes a callback, and will call that callback with a new user every so often. 
+
+Using this method, display a list of *new* users, and when they signed up.
+
+## Part 3, Final
+We want to see all of our users, organized by their last name, and sorted by the time that they signed up.
+
+Like in part 1, you will need some mechanism for selecting a letter of the alphabet. When that letter is selected, we should see all the users whose last name starts with that letter, *and* see new users appear in this list as they sign up.
+
+In `Final/index.ts` you will need both calls that you have already used, `fetchUserList` and `listenForUser`. 
+
+__Note__: `fetchUserList` does not guarantee sorting, but any user coming from `listenForUser` *will* have a sign up date later than any user in `fetchUserList`. 
