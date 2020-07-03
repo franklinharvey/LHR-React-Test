@@ -49,13 +49,15 @@ In `Organization/index.ts` create a react component that displays the users retu
 
 For inspiration, check out `SingleUser/index.ts` to see how you can fetch and display single user.
 
+__Bonus__: Show some type of loading indicator between the time of making the call and the response
+
 ## Part 2, New Users
 
 We want to see users sign up in realtime!
 
 In `NewUsers/index.ts` you will do something very similar to part 1, except instead of calling `fetchUserList`, you will use `listenForUser`. This method takes a callback, and will call that callback with a new user every so often.
 
-Using this method, display a list of _new_ users, and when they signed up.
+Using this method, display a list of _new_ users' names, and when they signed up. This list should be sorted so that the most recent sign ups are at the top.
 
 ## Part 3, Final
 
@@ -66,3 +68,5 @@ Like in part 1, you will need some mechanism for selecting a letter of the alpha
 In `Final/index.ts` you will need both calls that you have already used, `fetchUserList` and `listenForUser`.
 
 **Note**: `fetchUserList` does not guarantee sorting, but any user coming from `listenForUser` _will_ have a sign up date later than any user in `fetchUserList`.
+
+__Bonus__: Use Rx. You can solve this by having one observable that starts with the fetched user list, is sorted and and organized correctly, and will update with every new user. You can use `Service`'s `listenForUserRx` if you would like. Maybe look into Rx's `scan` or some other accumulator operator.
