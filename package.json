@@ -1,0 +1,38 @@
+{
+  "name": "lhr-react-test",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@types/lodash.sample": "4.2.6",
+    "@types/react-router": "5.1.8",
+    "@types/react-router-dom": "5.1.5",
+    "lodash.sample": "4.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.3.0",
+    "rxjs": "6.5.5",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.19",
+    "@types/react-dom": "16.9.5",
+    "@types/uuid": "3.4.6",
+    "typescript": "3.7.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
