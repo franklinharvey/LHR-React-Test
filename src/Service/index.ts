@@ -41,10 +41,13 @@ class Service {
    * disposer() // will kill it
    * ```
    */
-  listenForUser = (callback: (data: UserData) => void): Function => {
-    return this.source.subscribe((data) => {
+   listenForUser = (callback: (data: UserData) => void): Function => {
+    const sub = this.source.subscribe((data) => {
       callback(data);
-    }).unsubscribe;
+    });
+    return () => {
+      sub.unsubscribe();
+    };
   };
 
   listenForUserRx = (): rx.Observable<UserData> => {
