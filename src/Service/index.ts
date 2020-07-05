@@ -30,10 +30,21 @@ class Service {
     });
   };
 
-  listenForUser = (callback: (data: UserData) => void): void => {
-    this.source.subscribe((data) => {
+  /**
+   * @param callback a callback that will fire every time a new user signs up
+   * @returns a function to kill the subscription
+   *
+   * Example:
+   *
+   * ```
+   * const disposer = listenForUser((user) => doSomething(user))
+   * disposer() // will kill it
+   * ```
+   */
+  listenForUser = (callback: (data: UserData) => void): Function => {
+    return this.source.subscribe((data) => {
       callback(data);
-    });
+    }).unsubscribe;
   };
 
   listenForUserRx = (): rx.Observable<UserData> => {
